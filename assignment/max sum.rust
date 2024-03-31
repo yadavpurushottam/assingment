@@ -1,0 +1,24 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+int maxsubArraysum(vector<int>& nums) {
+    int maxendinghere = nums[0];
+    int maxSoFar = nums[0];
+
+    for (int i = 1; i < nums.size(); ++i) {
+        maxendinghere = max(nums[i], maxendinghere + nums[i]);
+        maxSoFar = max(maxSoFar, maxendinghere);
+    }
+
+    return maxSoFar;
+}
+
+int main() {
+    vector<int> nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4}; 
+    int maxSum = maxsubArraysum(nums);
+    cout << "Maximum subarray sum: " << maxSum << endl;
+    return 0;
+}

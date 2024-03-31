@@ -1,0 +1,29 @@
+#include <iostream>
+#include <sstream>
+#include <vector>
+#include <limits>
+
+using namespace std;
+
+string shortestWord(const string& sentence) {
+    istringstream iss(sentence);
+    string word;
+    string shortest;
+    size_t min_length = numeric_limits<size_t>::max(); 
+
+    while (iss >> word) {
+        if (word.length() < min_length) {
+            min_length = word.length();
+            shortest = word;
+        }
+    }
+
+    return shortest;
+}
+
+int main() {
+    string sentence = "The quick brown fox jumps over the lazy dog";
+    string shortest = shortestWord(sentence);
+    cout << "Shortest word in the sentence: " << shortest << endl;
+    return 0;
+}

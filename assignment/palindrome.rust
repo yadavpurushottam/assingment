@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+string ispalindrome(string s){
+    string e=s;
+    reverse(e.begin(),e.end());
+
+    if(e==s){
+        return "yes";
+    }
+    else{
+        return "no";
+    }
+}
+
+int main (){
+    string s;
+    cin>>s;
+    cout<<ispalindrome(s);
+
+    return 0;
+}

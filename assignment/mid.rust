@@ -1,0 +1,22 @@
+use std::vec::Vec;
+
+fn find_median_sorted_array(nums: &Vec<i32>) -> f64 {
+    let n = nums.len();
+    if n == 0 {
+        return 0.0;
+    }
+    let mid = n / 2;
+    if n % 2 == 0 {
+        return (nums[mid - 1] as f64 + nums[mid] as f64) / 2.0;
+    } else {
+        return nums[mid] as f64;
+    }
+}
+
+fn main() {
+    let nums = vec![1, 2, 3, 4, 5, 6];
+    let median = find_median_sorted_array(&nums);
+    println!("Median: {}", median);
+}
+
+
